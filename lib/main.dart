@@ -1,11 +1,11 @@
 import 'dart:math';
-import 'dart:ui';
-import 'dart:io';
 
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 int particleNumber = 100;
+final player = AudioPlayer();
 
 void main() => runApp(const Yipeee());
 
@@ -65,6 +65,7 @@ class _MyAppState extends State<MyApp> {
     final halfDegreesPerStep = degreesPerStep / 2;
     final path = Path();
     final fullAngle = degToRad(360);
+
     path.moveTo(size.width, halfWidth);
 
     for (double step = 0; step < fullAngle; step += degreesPerStep) {
@@ -83,9 +84,24 @@ class _MyAppState extends State<MyApp> {
       child: Stack(
         children: <Widget>[
           Positioned.fill(
-              child: Image.asset(
-                'assets/images/yipeee-background.png',
-                fit: BoxFit.fill,),),
+            child: Image.asset(
+              'assets/images/yipeee-background.png',
+              fit: BoxFit.fill,
+            ),
+          ),
+          Positioned.fill(
+            child: TextButton(
+                style: TextButton.styleFrom(
+                  overlayColor: Colors.transparent,
+                ),
+                onPressed: () {
+                  _controllerBottomCenter.play();
+                  _controllerCenterRight.play();
+                  _controllerCenterLeft.play();
+                  player.play(UrlSource('assets/sounds/yippee-tbh.mp3'));
+                },
+                child: Text('')),
+          ),
           //CENTER RIGHT -- Emit left
           Align(
             alignment: Alignment.centerRight,
@@ -141,7 +157,8 @@ class _MyAppState extends State<MyApp> {
               blastDirection: -pi / 2,
               particleDrag: 0.01, // apply drag to the confetti
               emissionFrequency: 0.05, // how often it should emit
-              numberOfParticles: particleNumber * 2, // number of particles to emit
+              numberOfParticles:
+                  particleNumber * 2, // number of particles to emit
               gravity: 0.05, // gravity - or fall speed
               minimumSize: Size(80, 50),
               maximumSize: Size(90, 60),
@@ -156,25 +173,8 @@ class _MyAppState extends State<MyApp> {
               ], // manually specify the colors to be used
             ),
           ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: TextButton(
-                onPressed: () {
-                  _controllerBottomCenter.play();
-                  _controllerCenterRight.play();
-                  _controllerCenterLeft.play();
-                },
-                child: _display('YIPEEEEE')),
-          ),
         ],
       ),
-    );
-  }
-
-  Text _display(String text) {
-    return Text(
-      text,
-      style: const TextStyle(color: Colors.white, fontSize: 20),
     );
   }
 }
