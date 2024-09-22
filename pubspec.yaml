@@ -63,6 +63,9 @@ flutter:
 
   assets:
     - assets/images/yipeee-background.png
+    - assets/sounds/yippee-tbh.mp3
+    - assets/sounds/brainrot_yippee.wav
+    - assets/sounds/brainrot_yippee.ogg
 
   # To add assets to your application, add an assets section, like this:
   # assets:

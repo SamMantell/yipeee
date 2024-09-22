@@ -4,7 +4,7 @@ import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
 
-int particleNumber = 100;
+int particleNumber = 50000;
 final player = AudioPlayer();
 
 void main() => runApp(const Yipeee());
@@ -98,7 +98,7 @@ class _MyAppState extends State<MyApp> {
                   _controllerBottomCenter.play();
                   _controllerCenterRight.play();
                   _controllerCenterLeft.play();
-                  player.play(UrlSource('assets/sounds/yippee-tbh.mp3'));
+                  player.play(AssetSource('assets/sounds/brainrot_yippee.wav'));
                 },
                 child: Text('')),
           ),
