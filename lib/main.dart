@@ -2,9 +2,10 @@ import 'dart:math';
 
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
-import 'package:audioplayers/audioplayers.dart';
+import 'package:just_audio/just_audio.dart';
 
-int particleNumber = 50000;
+int particleNumber = 500;
+
 final player = AudioPlayer();
 
 void main() => runApp(const Yipeee());
@@ -95,10 +96,12 @@ class _MyAppState extends State<MyApp> {
                   overlayColor: Colors.transparent,
                 ),
                 onPressed: () {
+                  player.stop();
+                  player.setUrl('https://cloud.goddeh.dev/s/TPWcLHSCd4WF99E/download/brainrot_yippee.ogg');
                   _controllerBottomCenter.play();
                   _controllerCenterRight.play();
                   _controllerCenterLeft.play();
-                  player.play(AssetSource('assets/sounds/brainrot_yippee.wav'));
+                  player.play();
                 },
                 child: Text('')),
           ),

@@ -33,11 +33,11 @@ dependencies:
 
   #Confetti Animation
   confetti: ^0.7.0
-  audioplayers: ^6.1.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
+  just_audio: ^0.9.40
 
 dev_dependencies:
   flutter_test:
