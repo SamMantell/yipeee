@@ -97,7 +97,7 @@ class _MyAppState extends State<MyApp> {
                 ),
                 onPressed: () {
                   player.stop();
-                  player.setUrl('https://cloud.goddeh.dev/s/TPWcLHSCd4WF99E/download/brainrot_yippee.ogg');
+                  player.setUrl('https://cloud.goddeh.dev/s/P7dmNcTzyS5gqdk/download/brainrot_yippee.ogg');
                   _controllerBottomCenter.play();
                   _controllerCenterRight.play();
                   _controllerCenterLeft.play();
